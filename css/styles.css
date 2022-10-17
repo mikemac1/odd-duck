@@ -40,6 +40,7 @@ h2 {
     grid-column-end: 6;
     grid-row-start: 1;
     grid-row-end: 3;
+    border: 2px solid #b48484;
 }
 
 #duckTwo {
@@ -47,6 +48,7 @@ h2 {
     grid-column-end: 9;
     grid-row-start: 1;
     grid-row-end: 3;
+    border: 2px solid #b48484;
 }
 
 #duckThree {
@@ -54,6 +56,17 @@ h2 {
     grid-column-end: 12;
     grid-row-start: 1;
     grid-row-end: 3;
+    border: 2px solid #b48484;
+}
+
+div img {
+    border: 5px solid transparent;
+}
+
+div img:hover {
+        border: 10px solid #b48484;
+        cursor: pointer;
+      
 }
 
 #resultsViews {
