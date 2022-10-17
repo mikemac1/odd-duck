@@ -8,7 +8,7 @@
 
 ## Instructions
 
-* Although this is an individual lab assignment, do feel free to collaborate and work in pairs or groups.
+* This is an individual assignment, but are free to collaborate with classmates. Just be sure that if there is collaboration, be sure to make note of that collaboration in the README file.
 
 ## Resources
 
