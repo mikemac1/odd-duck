@@ -1,10 +1,11 @@
 # odd-duck
 
-## Lab 11
+## Lab 11/12
 
 ## Problem Domain
 
 17 October - Building a site for the Odd Duck Product Co and allow employees to vote for 1 of the 3 products displayed that they think should be the next new product brought to market.
+18 October - The site will now ensure no one of the same 3 products will be seen on the subsequent vote. Also once the vote is completed it will automatically generate a bar chart.
 
 ## Instructions
 
@@ -17,6 +18,7 @@
 * [Grid Cheatsheat](https://grid.malven.co/)
 * [Flexbox Cheatsheet Cheatsheet](https://jonitrythall.com/content/flexboxsheet.pdf)
 * [Caveat Google Font](https://fonts.google.com/?query=Caveat)
+* [Chart.JS](https://www.chartjs.org/);
 
 ### Submission Instructions
 
@@ -34,3 +36,11 @@ I know I need to pay attention and read before I start immediately working on so
 
 * How long did it take you to complete this assignment? And, before you started, how long did you think it would take you to complete this assignment?
 I will be honest that I am not surprised that after almost 8 hours I am typing this out right now. When I went into the lab I didn't feel good and I feel even worse now. I assumed it was not going to go well.
+
+## Comments & Reflections Lab 12
+
+* How did this go, overall?
+
+* What observations or questions do you have about what you’ve learned so far?
+
+* How long did it take you to complete this assignment? And, before you started, how long did you think it would take you to complete this assignment?
