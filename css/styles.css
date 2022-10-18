@@ -140,9 +140,9 @@ ul {
 } */
 
 #chartHolder {
-    grid-column-start: 3;
+    grid-column-start: 1;
     grid-column-end: 12;
-    grid-row-start: 7;
+    grid-row-start: 6;
     grid-row-end: 11;
     border: 2px solid #b48484;
 }
