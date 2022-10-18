@@ -1,3 +1,9 @@
+* {
+    background-color: #efcfbf;
+    box-sizing: border-box;
+}
+
+
 #header {
     display: flex;
     justify-content: flex-start;
@@ -39,8 +45,8 @@ h2 {
     grid-column-start: 3;
     grid-column-end: 6;
     grid-row-start: 1;
-    grid-row-end: 3;
-    border: 5px solid transparent;
+    grid-row-end: 4;
+    border: 10px solid transparent;
     justify-self: center;
 }
 
@@ -48,8 +54,8 @@ h2 {
     grid-column-start: 6;
     grid-column-end: 9;
     grid-row-start: 1;
-    grid-row-end: 3;
-    border: 5px solid transparent;
+    grid-row-end: 4;
+    border: 10px solid transparent;
     justify-self: center;
 }
 
@@ -57,9 +63,9 @@ h2 {
     grid-column-start: 9;
     grid-column-end: 12;
     grid-row-start: 1;
-    grid-row-end: 3;
+    grid-row-end: 4;
     justify-self: center;
-    border: 5px solid transparent;
+    border: 10px solid transparent;
 }
 
 div img {
@@ -75,30 +81,30 @@ div img {
 #duckTwo:hover {
     border: 10px solid #b48484;
     cursor: pointer;
-  
 }
 
 #duckThree:hover {
     border: 10px solid #b48484;
     cursor: pointer;
-  
 }
 
 #resultsViews {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 1;
-    grid-row-end: 6;
+    grid-row-end: 5;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
 }
 
 #prodDescript {
     grid-column-start: 3;
     grid-column-end: 12;
     grid-row-start: 4;
-    grid-row-end: 7;
+    grid-row-end: 5;
     margin: 1rem;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
+    font-family: 'Caveat', cursive;
+    font-size: 30px;
 }
 
 img {
@@ -142,7 +148,7 @@ ul {
 #chartHolder {
     grid-column-start: 1;
     grid-column-end: 12;
-    grid-row-start: 6;
+    grid-row-start: 5;
     grid-row-end: 11;
     border: 2px solid #b48484;
 }

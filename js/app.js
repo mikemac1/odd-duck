@@ -12,10 +12,11 @@ let image2 = document.querySelector('#duckTwo');
 let image3 = document.querySelector('#duckThree');
 let votes = document.querySelector('#resultsViews');
 let viewResults = document.querySelector('#viewResults');
-console.log(image1);
-console.log(votes);
+
 let maxNumberOfVotes = 5;
 let numberUserVotes = 0;
+
+let indexArray = [];
 
 // Global Functions
 function randomProduct() {
@@ -56,12 +57,19 @@ let wineGlass = new Product('wine-glass', 'jpg');
 let productArray = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, waterCan, wineGlass];
 console.log(productArray.length);
 
-
 // User is presented a trio of products
 function displayProducts() {
-    let product1 = randomProduct();
-    let product2 = randomProduct();
-    let product3 = randomProduct();
+    while (indexArray.length < 9) {
+        let generateNum = randomProduct();
+        if (!indexArray.includes(generateNum)) {
+            indexArray.push(generateNum);
+        }
+    }
+    console.log(indexArray);
+
+    let product1 = indexArray.shift();
+    let product2 = indexArray.shift();
+    let product3 = indexArray.shift();
     console.log(product1, product2, product3);
     // seriously consider using an array --->how do you find out if an array includes something
     while (product1 === product2 || product2 === product3) {
@@ -94,7 +102,7 @@ function displayResults() {
     }
 }
 
-// // Step 3: The Function
+// // Step 3: The Click Function
 function handleClicks(event) {
 
     if (event.target === myProduct) {
@@ -151,7 +159,15 @@ function chartProducer() {
                 borderColor: [
                     'rgb(151, 51, 201)',
                 ],
-                borderWidth: 1
+                hoverBackgroundColor: [
+                    'rgb(151, 51, 201)',
+                ],
+                hoverBorderColor: [
+                    'rgb(114, 36, 152)',
+                ],
+                borderWidth: 1,
+                pointStyle: 'star',
+                borderRadius: 7,
             },
             {
                 label: 'Number Of Times Shown',
@@ -162,7 +178,15 @@ function chartProducer() {
                 borderColor: [
                     'rgb(11, 192, 47)',
                 ],
-                borderWidth: 1
+                hoverBackgroundColor: [
+                    'rgb(11, 192, 47)',
+                ],
+                hoverBorderColor: [
+                    'rgb(11, 165, 42)',
+                ],
+                borderWidth: 1,
+                pointStyle: 'star',
+                borderRadius: 7,
             }]
     };
 
@@ -174,6 +198,14 @@ function chartProducer() {
                 y: {
                     beginAtZero: true
                 }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    position: 'top',
+                    text: 'Product Votes By Employees at Lobby Kiosk'
+                },
+
             }
         },
     };
