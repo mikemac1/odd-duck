@@ -130,24 +130,11 @@ ul {
 #viewResults.clicks-allowed {
     background-color: darkgrey;
     color: white;
-    padding: .5rem 1rem;
-    width: max-content;
-    height: max-content;
-    font-size: .8rem;
-    margin: 1rem;
-    pointer-events: auto;
     border: 4px solid black;
+    pointer-events: auto;
 }
 
 #viewResults.clicks-allowed:hover {
     background-color: #b48484;
-    color: white;
-    padding: .5rem 1rem;
-    width: max-content;
-    height: max-content;
-    font-size: .8rem;
-    margin: 1rem;
-    pointer-events: none;
-    font-weight: bold;
     border: 4px solid #b48484;
 }
