@@ -59,6 +59,7 @@ console.log(productArray.length);
 
 // User is presented a trio of products
 function displayProducts() {
+    // Ensures the current round of pictures & the next two rounds are all different
     while (indexArray.length < 9) {
         let generateNum = randomProduct();
         if (!indexArray.includes(generateNum)) {
@@ -71,7 +72,7 @@ function displayProducts() {
     let product2 = indexArray.shift();
     let product3 = indexArray.shift();
     console.log(product1, product2, product3);
-    // seriously consider using an array --->how do you find out if an array includes something
+
     while (product1 === product2 || product2 === product3) {
         product2 = randomProduct();
     }
@@ -97,7 +98,7 @@ function displayResults() {
     // document.getElementById("resultsViews").innerHTML = "";
     for (let i = 0; i < productArray.length; i++) {
         let li = document.createElement('li');
-        li.textContent = `${productArray[i].name}: ${productArray[i].votes} votes`;
+        li.textContent = `${productArray[i].name} - ${productArray[i].votes} votes & ${productArray[i].shown} views`;
         votes.appendChild(li);
     }
 }
@@ -136,7 +137,7 @@ function handleClicks(event) {
 
 
 function chartProducer() {
-
+    // Create arrays to build data sets
     let productNames = [];
     let productShown = [];
     let productVotes = [];
@@ -203,7 +204,10 @@ function chartProducer() {
                 title: {
                     display: true,
                     position: 'top',
-                    text: 'Product Votes By Employees at Lobby Kiosk'
+                    text: 'Product Votes By Employees at Lobby Kiosk',
+                    font: {
+                        size: 30
+                    }
                 },
 
             }
