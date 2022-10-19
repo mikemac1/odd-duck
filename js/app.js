@@ -12,10 +12,11 @@ let image2 = document.querySelector('#duckTwo');
 let image3 = document.querySelector('#duckThree');
 let votes = document.querySelector('#resultsViews');
 let viewResults = document.querySelector('#viewResults');
-console.log(image1);
-console.log(votes);
-let maxNumberOfVotes = 25;
+
+let maxNumberOfVotes = 5;
 let numberUserVotes = 0;
+
+let indexArray = [];
 
 // Global Functions
 function randomProduct() {
@@ -56,14 +57,22 @@ let wineGlass = new Product('wine-glass', 'jpg');
 let productArray = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, waterCan, wineGlass];
 console.log(productArray.length);
 
-
 // User is presented a trio of products
 function displayProducts() {
-    let product1 = randomProduct();
-    let product2 = randomProduct();
-    let product3 = randomProduct();
+    // Ensures the current round of pictures & the next two rounds are all different
+    while (indexArray.length < 9) {
+        let generateNum = randomProduct();
+        if (!indexArray.includes(generateNum)) {
+            indexArray.push(generateNum);
+        }
+    }
+    console.log(indexArray);
+
+    let product1 = indexArray.shift();
+    let product2 = indexArray.shift();
+    let product3 = indexArray.shift();
     console.log(product1, product2, product3);
-    // seriously consider using an array --->how do you find out if an array includes something
+
     while (product1 === product2 || product2 === product3) {
         product2 = randomProduct();
     }
@@ -89,12 +98,12 @@ function displayResults() {
     // document.getElementById("resultsViews").innerHTML = "";
     for (let i = 0; i < productArray.length; i++) {
         let li = document.createElement('li');
-        li.textContent = `${productArray[i].name}: ${productArray[i].votes} votes`;
+        li.textContent = `${productArray[i].name} - ${productArray[i].votes} votes & ${productArray[i].shown} views`;
         votes.appendChild(li);
     }
 }
 
-// // Step 3: The Function
+// // Step 3: The Click Function
 function handleClicks(event) {
 
     if (event.target === myProduct) {
@@ -115,12 +124,101 @@ function handleClicks(event) {
     if (numberUserVotes === maxNumberOfVotes) {
         myProduct.removeEventListener('click', handleClicks);
         console.log('myProduct is off');
-        viewResults.className = 'clicks-allowed';
-        viewResults.addEventListener('click', displayResults);
-        console.log('viewResults is on');
+        // Removed for lab 12
+        // viewResults.className = 'clicks-allowed';
+        // viewResults.addEventListener('click', displayResults);
+        // console.log('viewResults is on');
+        displayResults();
+        chartProducer();
     } else {
         displayProducts();
     }
+}
+
+
+function chartProducer() {
+    // Create arrays to build data sets
+    let productNames = [];
+    let productShown = [];
+    let productVotes = [];
+    for (let i = 0; i < productArray.length; i++) {
+        productNames.push(productArray[i].name);
+        productShown.push(productArray[i].shown);
+        productVotes.push(productArray[i].votes);
+    }
+
+    const labels = productNames;
+    const data = {
+        labels: labels,
+        datasets: [
+            {
+                label: 'Number Of Votes',
+                data: productVotes,
+                backgroundColor: [
+                    'rgba(151, 51, 201, 0.2)',
+                ],
+                borderColor: [
+                    'rgb(151, 51, 201)',
+                ],
+                hoverBackgroundColor: [
+                    'rgb(151, 51, 201)',
+                ],
+                hoverBorderColor: [
+                    'rgb(114, 36, 152)',
+                ],
+                borderWidth: 1,
+                pointStyle: 'star',
+                borderRadius: 7,
+            },
+            {
+                label: 'Number Of Times Shown',
+                data: productShown,
+                backgroundColor: [
+                    'rgba(11, 192, 47, 0.2)',
+                ],
+                borderColor: [
+                    'rgb(11, 192, 47)',
+                ],
+                hoverBackgroundColor: [
+                    'rgb(11, 192, 47)',
+                ],
+                hoverBorderColor: [
+                    'rgb(11, 165, 42)',
+                ],
+                borderWidth: 1,
+                pointStyle: 'star',
+                borderRadius: 7,
+            }]
+    };
+
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    position: 'top',
+                    text: 'Product Votes By Employees at Lobby Kiosk',
+                    font: {
+                        size: 30
+                    }
+                },
+
+            }
+        },
+    };
+
+    const myChart = new Chart(
+        document.getElementById('chart'),
+        config
+    );
+
 }
 
 // Step 2: TheEvent Listener
