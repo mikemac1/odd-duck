@@ -40,7 +40,10 @@ I will be honest that I am not surprised that after almost 8 hours I am typing t
 ## Comments & Reflections Lab 12
 
 * How did this go, overall?
+Overall I did okay with the lab as I did much better with the chartJS portion as I really love data visualization. Tried out different variations with the attributes available to set for the chart and integrated into the grid quite easily. The JS portion of the lab is completed but it is still a work in progress. I kind of have an inkling on how to set it up but there are portions I have no idea on how it works the way it does.
 
 * What observations or questions do you have about what you’ve learned so far?
+Definitely looking forward to getting my hands on more charts to play with.
 
 * How long did it take you to complete this assignment? And, before you started, how long did you think it would take you to complete this assignment?
+Was able to finish in four hours and kind of suprised it only took that amount of time as I expected integrating the chart to take longer.
