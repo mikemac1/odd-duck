@@ -2,7 +2,7 @@
 
 // JS to allow employees to view different products and vote for the next product to be brought to market
 
-console.log('Please say Hi!');
+// console.log('Please say Hi!');
 
 // Global Variables
 // Step 1: Window Into The Dom
@@ -13,10 +13,12 @@ let image3 = document.querySelector('#duckThree');
 let votes = document.querySelector('#resultsViews');
 let viewResults = document.querySelector('#viewResults');
 
-let maxNumberOfVotes = 25;
+let maxNumberOfVotes = 5;
 let numberUserVotes = 0;
 
 let indexArray = [];
+
+let productArray = [];
 
 // Global Functions
 function randomProduct() {
@@ -25,12 +27,13 @@ function randomProduct() {
 }
 
 // Generic Product Constructor Object
-function Product(name, fileExtension) {
+function Product(name, fileExtension, votes=0, shown=0) {
     this.name = name;
     this.fileExtension = fileExtension;
     this.src = `img/${this.name}.${this.fileExtension}`;
-    this.votes = 0;
-    this.shown = 0;
+    this.votes = votes;
+    this.shown = shown;
+    productArray.push(this);
 }
 
 // Products To Be Added
@@ -54,8 +57,7 @@ let unicorn = new Product('unicorn', 'jpg');
 let waterCan = new Product('water-can', 'jpg');
 let wineGlass = new Product('wine-glass', 'jpg');
 
-let productArray = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, waterCan, wineGlass];
-console.log(productArray.length);
+// console.log(productArray.length);
 
 // User is presented a trio of products
 function displayProducts() {
@@ -66,23 +68,23 @@ function displayProducts() {
             indexArray.push(generateNum);
         }
     }
-    console.log(indexArray);
+    // console.log(indexArray);
 
     let product1 = indexArray.shift();
     let product2 = indexArray.shift();
     let product3 = indexArray.shift();
-    console.log(product1, product2, product3);
+    // console.log(product1, product2, product3);
 
-    while (product1 === product2 || product2 === product3) {
-        product2 = randomProduct();
-    }
-    while (product1 === product3) {
-        product1 = randomProduct();
-    }
+    // while (product1 === product2 || product2 === product3) {
+    //     product2 = randomProduct();
+    // }
+    // while (product1 === product3) {
+    //     product1 = randomProduct();
+    // }
     image1.src = productArray[product1].src;
     image1.alt = productArray[product1].name;
     productArray[product1].shown++;
-    console.log(productArray[product1].shown);
+    // console.log(productArray[product1].shown);
     image2.src = productArray[product2].src;
     image2.alt = productArray[product2].name;
     productArray[product2].shown++;
@@ -90,7 +92,7 @@ function displayProducts() {
     image3.src = productArray[product3].src;
     image3.alt = productArray[product3].name;
     productArray[product3].shown++;
-    console.log(productArray[product3].shown);
+    // console.log(productArray[product3].shown);
 }
 
 // Display & Tally Voting Results
@@ -105,33 +107,33 @@ function displayResults() {
 
 // // Step 3: The Click Function
 function handleClicks(event) {
-
     if (event.target === myProduct) {
         alert("Please click on a product image.");
     }
-    console.log('click');
-    console.log(event.target.alt); //specifically targets the product clicked using its name
+    // console.log('click');
+    // console.log(event.target.alt); //specifically targets the product clicked using its name
+    // console.log(productArray);
     numberUserVotes++;
     let clickedProduct = event.target.alt;
 
     for (let i = 0; i < productArray.length; i++) {
         if (clickedProduct === productArray[i].name) {
-            console.log(productArray[i]);
+            // console.log(productArray[i]);
             productArray[i].votes++;
             break;
         }
     }
     if (numberUserVotes === maxNumberOfVotes) {
         myProduct.removeEventListener('click', handleClicks);
-        console.log('myProduct is off');
-        // Removed for lab 12
-        // viewResults.className = 'clicks-allowed';
-        // viewResults.addEventListener('click', displayResults);
-        // console.log('viewResults is on');
+        // console.log('myProduct is off');
+        
+        // console.log(productArray);
         displayResults();
+        // console.log(productArray);
         chartProducer();
     } else {
         displayProducts();
+        storeData();
     }
 }
 
@@ -213,16 +215,55 @@ function chartProducer() {
             }
         },
     };
-
     const myChart = new Chart(
         document.getElementById('chart'),
         config
     );
+}
 
+
+// BUILD-OUT & RECALL LOCALSTORAGE
+// Create
+function storeData() {
+    let viewedStringProds = JSON.stringify(productArray);
+    // console.log(viewedStringProds);
+
+    // create a key for the data that needs to be in local storage
+    localStorage.setItem('shown', viewedStringProds)
+}
+
+// Recall
+function retrieveData() {
+    // check if local storage has views available
+    // if no views maybeShown will be null
+    let maybeShown = localStorage.getItem('shown');
+    // if it does have orders, unpack them)
+    if (maybeShown) {
+        // turn it back into an array
+        let parsedShown = JSON.parse(maybeShown);
+        // console.log(parsedShown);
+        
+        // reset productArray to an empty array
+        productArray = [];
+        console.log(productArray);
+        // NEW WAY -  (let varNameReferEachItemArray of nameOfArray)
+
+        for (let item of parsedShown) {
+            // console.log(item);
+            let name = item.name;
+            let fileExtension = item.fileExtension;
+            let votes = item.votes;
+            let shown = item.shown;
+            // parsedShown (name, fileExtension, votes, shown)
+            new Product (name, fileExtension, votes, shown);
+            // console.log('made it!');
+        }
+        console.log(productArray);
+    }
 }
 
 // Step 2: TheEvent Listener
 // when addeventlistener handles the click it sends all information from the click
 myProduct.addEventListener('click', handleClicks);
-
+retrieveData();
 displayProducts();
