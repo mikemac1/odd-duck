@@ -2,7 +2,7 @@
 
 // JS to allow employees to view different products and vote for the next product to be brought to market
 
-// console.log('Please say Hi!');
+console.log('Please say Hi!');
 
 // Global Variables
 // Step 1: Window Into The Dom
@@ -13,7 +13,7 @@ let image3 = document.querySelector('#duckThree');
 let votes = document.querySelector('#resultsViews');
 let viewResults = document.querySelector('#viewResults');
 
-let maxNumberOfVotes = 5;
+let maxNumberOfVotes = 25;
 let numberUserVotes = 0;
 
 let indexArray = [];
@@ -68,31 +68,23 @@ function displayProducts() {
             indexArray.push(generateNum);
         }
     }
-    // console.log(indexArray);
 
     let product1 = indexArray.shift();
     let product2 = indexArray.shift();
     let product3 = indexArray.shift();
-    // console.log(product1, product2, product3);
 
-    // while (product1 === product2 || product2 === product3) {
-    //     product2 = randomProduct();
-    // }
-    // while (product1 === product3) {
-    //     product1 = randomProduct();
-    // }
     image1.src = productArray[product1].src;
     image1.alt = productArray[product1].name;
     productArray[product1].shown++;
-    // console.log(productArray[product1].shown);
+
     image2.src = productArray[product2].src;
     image2.alt = productArray[product2].name;
     productArray[product2].shown++;
-    console.log(productArray[product2].shown);
+
     image3.src = productArray[product3].src;
     image3.alt = productArray[product3].name;
     productArray[product3].shown++;
-    // console.log(productArray[product3].shown);
+
 }
 
 // Display & Tally Voting Results
@@ -110,9 +102,6 @@ function handleClicks(event) {
     if (event.target === myProduct) {
         alert("Please click on a product image.");
     }
-    // console.log('click');
-    // console.log(event.target.alt); //specifically targets the product clicked using its name
-    // console.log(productArray);
     numberUserVotes++;
     let clickedProduct = event.target.alt;
 
@@ -226,8 +215,6 @@ function chartProducer() {
 // Create
 function storeData() {
     let viewedStringProds = JSON.stringify(productArray);
-    // console.log(viewedStringProds);
-
     // create a key for the data that needs to be in local storage
     localStorage.setItem('shown', viewedStringProds)
 }
