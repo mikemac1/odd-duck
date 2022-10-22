@@ -3,12 +3,12 @@
     box-sizing: border-box;
 }
 
-
 #header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     align-content: space-between;
+    border-bottom: 2px solid #b48484;
 }
 
 h1 {
@@ -26,7 +26,7 @@ h2 {
 #oddDucks {
   display: grid;
   grid-template-columns: repeat(11, 1fr);
-  grid-template-rows: repeat(10, 2fr);
+  grid-template-rows: repeat(8, 2fr);
   align-self: center;
   justify-content: center;
   align-content: center;
@@ -45,7 +45,7 @@ h2 {
     grid-column-start: 3;
     grid-column-end: 6;
     grid-row-start: 1;
-    grid-row-end: 4;
+    grid-row-end: 3;
     border: 10px solid transparent;
     justify-self: center;
 }
@@ -54,7 +54,7 @@ h2 {
     grid-column-start: 6;
     grid-column-end: 9;
     grid-row-start: 1;
-    grid-row-end: 4;
+    grid-row-end: 3;
     border: 10px solid transparent;
     justify-self: center;
 }
@@ -63,13 +63,14 @@ h2 {
     grid-column-start: 9;
     grid-column-end: 12;
     grid-row-start: 1;
-    grid-row-end: 4;
+    grid-row-end: 3;
     justify-self: center;
     border: 10px solid transparent;
 }
 
 div img {
     border: 10px solid transparent;
+    background-color: #b3adad92;
 }
 
 #duckOne:hover {
@@ -94,23 +95,19 @@ div img {
     grid-row-start: 1;
     grid-row-end: 4;
     font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
+    font-size: 11px;
 }
 
 #prodDescript {
     grid-column-start: 3;
     grid-column-end: 12;
-    grid-row-start: 4;
-    grid-row-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 4;
     margin: 1rem;
     font-family: 'Caveat', cursive;
     font-size: 50px;
     text-align: center;
 }
-
-/* img {
-    border: 2px solid black;
-} */
 
 ul {
     list-style-type: circle;
@@ -118,38 +115,11 @@ ul {
     font-size: 11px;
 
 }
-/* Removed for lab 12
-#viewResults {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 6;
-    grid-row-end: 7;
-    background-color: rgba(8, 7, 7, 0.734);
-    color: lightgrey;
-    padding: .5rem 1rem;
-    width: max-content;
-    height: max-content;
-    font-size: .8rem;
-    margin: 1rem;
-    pointer-events: none;
-}
-
-#viewResults.clicks-allowed {
-    background-color: darkgrey;
-    color: white;
-    border: 4px solid black;
-    pointer-events: auto;
-}
-
-#viewResults.clicks-allowed:hover {
-    background-color: #b48484;
-    border: 4px solid #b48484;
-} */
 
 #chartHolder {
     grid-column-start: 1;
     grid-column-end: 12;
-    grid-row-start: 5;
-    grid-row-end: 11;
+    grid-row-start: 4;
+    grid-row-end: 8;
     border: 2px solid #b48484;
 }

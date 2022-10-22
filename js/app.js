@@ -13,7 +13,7 @@ let image3 = document.querySelector('#duckThree');
 let votes = document.querySelector('#resultsViews');
 let viewResults = document.querySelector('#viewResults');
 
-let maxNumberOfVotes = 25;
+let maxNumberOfVotes = 5;
 let numberUserVotes = 0;
 
 let indexArray = [];
