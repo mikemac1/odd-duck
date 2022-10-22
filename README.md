@@ -1,12 +1,13 @@
 # odd-duck
 
-## Lab 11/12/13
+## Lab 11/12/13/15b
 
 ## Problem Domain
 
 17 October - Building a site for the Odd Duck Product Co and allow employees to vote for 1 of the 3 products displayed that they think should be the next new product brought to market.
 18 October - The site will now ensure no one of the same 3 products will be seen on the subsequent vote. Also once the vote is completed it will automatically generate a bar chart.
 19 October - Goal is to implement localStorage such that table & chart values will return after a refresh of the page and the 25 maxVisits has been reset.
+21 October - Finish up the Odd Duck Products application with final touches to the CSS and removed commented out code.
 
 ## Instructions
 
@@ -59,3 +60,17 @@ This lab just goes to show that unless the instructor completely demos the lab i
 
 * How long did it take you to complete this assignment? And, before you started, how long did you think it would take you to complete this assignment?
 This took until 5:30 and actually went faster than I thought it would in the end. But I have a feeling in my stomach that I wish would go away.
+
+## Comments & Reflections Lab 15b
+
+* How did this go, overall?
+
+Fairly straight-forward as I cleaned up a lot of commented code from the previous labs and added a little bit of styling as well as adjusted the grid for the page to better fit the elements together. Honestly it feels good to actually look at my site and use a styling that actually closely mimics the wireframe for this lab.
+
+* What observations or questions do you have about what you’ve learned so far?
+
+None as I am more focused on preparation for my group project and taking the final exam tomorrow.
+
+* How long did it take you to complete this assignment? And, before you started, how long did you think it would take you to complete this assignment?
+
+Thought it would have been about an hour and probably should have been, but was interrupted several times as I assisted others. Not a big deal.
